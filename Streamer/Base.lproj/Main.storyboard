@@ -34,6 +34,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LLn-YR-Qqf">
                                         <rect key="frame" x="65" y="86.5" width="119" height="30"/>
                                         <state key="normal" title="Start Live Stream"/>
+                                        <connections>
+                                            <action selector="startLiveButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S1a-pK-48e"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -52,11 +55,53 @@
                     <connections>
                         <outlet property="startLiveButton" destination="LLn-YR-Qqf" id="PPk-P3-fhk"/>
                         <outlet property="streamerNameTextField" destination="EXU-dA-cRW" id="Vws-nM-NNt"/>
+                        <segue destination="IZ3-pD-oAG" kind="show" identifier="startLive" id="udy-TI-a3z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1780" y="94"/>
+        </scene>
+        <!--Streaming View Controller-->
+        <scene sceneID="6So-BM-cZh">
+            <objects>
+                <viewController id="IZ3-pD-oAG" customClass="StreamingViewController" customModule="Streamer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sRX-0Y-Lte">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5HH-iD-ORS" customClass="MTHKView" customModule="HaishinKit">
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IdD-Mw-1B8">
+                                <rect key="frame" x="183" y="806" width="48" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="onPublish:" destination="IZ3-pD-oAG" eventType="touchUpInside" id="rn7-4i-FEh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="o7S-UI-2uk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="o7S-UI-2uk" firstAttribute="bottom" secondItem="IdD-Mw-1B8" secondAttribute="bottom" constant="20" id="2AK-K2-dna"/>
+                            <constraint firstItem="5HH-iD-ORS" firstAttribute="leading" secondItem="o7S-UI-2uk" secondAttribute="leading" id="2Vx-i3-qvn"/>
+                            <constraint firstItem="5HH-iD-ORS" firstAttribute="top" secondItem="o7S-UI-2uk" secondAttribute="top" id="P0z-JU-d82"/>
+                            <constraint firstItem="IdD-Mw-1B8" firstAttribute="centerX" secondItem="o7S-UI-2uk" secondAttribute="centerX" id="Pd3-NM-3IB"/>
+                            <constraint firstItem="o7S-UI-2uk" firstAttribute="trailing" secondItem="5HH-iD-ORS" secondAttribute="trailing" id="ZZf-GO-cgE"/>
+                            <constraint firstItem="o7S-UI-2uk" firstAttribute="bottom" secondItem="5HH-iD-ORS" secondAttribute="bottom" id="eJY-JG-znt"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="zME-Fs-BHx"/>
+                    <connections>
+                        <outlet property="lfView" destination="5HH-iD-ORS" id="DlE-DQ-Vsg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ysx-Re-6c6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2532" y="94"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yMR-mU-qCg">
